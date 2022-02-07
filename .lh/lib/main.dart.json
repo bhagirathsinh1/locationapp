@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/main.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1644235462968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1644235462968,
+            "name": "Commit-0",
+            "content": "// ignore_for_file: prefer_const_constructors\n\nimport 'package:flutter/material.dart';\nimport 'package:locationapp/screens/bottombar_page.dart';\n\nvoid main() {\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return LayoutBuilder(\n      builder: (context, constraints) {\n        return MaterialApp(\n          debugShowCheckedModeBanner: false,\n          title: 'BottomBarPage',\n          home: BottomBarPage(),\n        );\n      },\n    );\n  }\n}\n"
+        }
+    ]
+}

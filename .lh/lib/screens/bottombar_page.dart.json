@@ -1,0 +1,18 @@
+{
+    "sourceFile": "lib/screens/bottombar_page.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1644235438454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1644235438454,
+            "name": "Commit-0",
+            "content": "// ignore_for_file: prefer_const_constructors\r\n\r\nimport 'dart:io';\r\nimport 'package:bottom_bar/bottom_bar.dart';\r\nimport 'package:flutter/material.dart';\r\nimport 'package:locationapp/screens/home_page.dart';\r\n\r\nclass BottomBarPage extends StatefulWidget {\r\n  const BottomBarPage({Key? key}) : super(key: key);\r\n\r\n  @override\r\n  State<BottomBarPage> createState() => _BottomBarPageState();\r\n}\r\n\r\nclass _BottomBarPageState extends State<BottomBarPage> {\r\n  int _currentPage = 0;\r\n  static bool _init = false;\r\n  get inits => _init;\r\n  bool willpop = false;\r\n\r\n  final _pageController = PageController(keepPage: false);\r\n  TextEditingController textController = TextEditingController();\r\n  @override\r\n  void initState() {\r\n    super.initState();\r\n  }\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return WillPopScope(\r\n      onWillPop: () {\r\n        return exit(0);\r\n      },\r\n      child: Scaffold(\r\n        backgroundColor: Colors.white,\r\n        body: PageView(\r\n          controller: _pageController,\r\n          // ignore: prefer_const_literals_to_create_immutables\r\n          children: [\r\n            HomePage(),\r\n            // GoogleMapSample(),\r\n            // Favouritepage(),\r\n          ],\r\n          onPageChanged: (index) {\r\n            _init = true;\r\n            setState(\r\n              () => _currentPage = index,\r\n            );\r\n          },\r\n        ),\r\n        bottomNavigationBar: BottomBar(\r\n          backgroundColor: Colors.blue,\r\n          // showActiveBackgroundColor: true,\r\n          selectedIndex: _currentPage,\r\n          onTap: (int index) {\r\n            _pageController.jumpToPage(index);\r\n\r\n            setState(\r\n              () {\r\n                _init = true;\r\n                _currentPage = index;\r\n              },\r\n            );\r\n          },\r\n          items: <BottomBarItem>[\r\n            BottomBarItem(\r\n              icon: Icon(\r\n                Icons.home_outlined,\r\n                size: 30,\r\n                color: Colors.white70,\r\n              ),\r\n              title: Text(''),\r\n              activeColor: Colors.white,\r\n            ),\r\n            BottomBarItem(\r\n              icon: Icon(\r\n                Icons.email_outlined,\r\n                size: 30,\r\n                color: Colors.white70,\r\n              ),\r\n              title: Text(''),\r\n              activeColor: Colors.white,\r\n            ),\r\n            BottomBarItem(\r\n              icon: Icon(\r\n                Icons.person_outline,\r\n                size: 30,\r\n                color: Colors.white70,\r\n              ),\r\n              title: Text(''),\r\n              activeColor: Colors.white,\r\n            ),\r\n          ],\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}
