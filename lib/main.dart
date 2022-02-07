@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       builder: (context, constraints) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'BottomBarPage',
+          title: 'Location App',
           home: BottomBarPage(),
         );
       },

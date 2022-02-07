@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1644235462968,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1644239668155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     return LayoutBuilder(\n       builder: (context, constraints) {\n         return MaterialApp(\n           debugShowCheckedModeBanner: false,\n-          title: 'BottomBarPage',\n+          title: 'Location App',\n           home: BottomBarPage(),\n         );\n       },\n     );\n"
                 }
             ],
             "date": 1644235462968,

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1644235570633,
@@ -20,6 +20,10 @@
                 {
                     "date": 1644238808541,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n apply plugin: 'kotlin-android'\r\n apply from: \"$flutterRoot/packages/flutter_tools/gradle/flutter.gradle\"\r\n \r\n android {\r\n-    compileSdkVersion 31\r\n+    compileSdkVersion 30\r\n \r\n     compileOptions {\r\n         sourceCompatibility JavaVersion.VERSION_1_8\r\n         targetCompatibility JavaVersion.VERSION_1_8\r\n@@ -44,9 +44,9 @@\n     defaultConfig {\r\n         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).\r\n         applicationId \"com.example.locationapp\"\r\n         minSdkVersion 20\r\n-        targetSdkVersion 31\r\n+        targetSdkVersion 30\r\n         versionCode flutterVersionCode.toInteger()\r\n         versionName flutterVersionName\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1644239880017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n apply plugin: 'kotlin-android'\r\n apply from: \"$flutterRoot/packages/flutter_tools/gradle/flutter.gradle\"\r\n \r\n android {\r\n-    compileSdkVersion 30\r\n+    compileSdkVersion 31\r\n \r\n     compileOptions {\r\n         sourceCompatibility JavaVersion.VERSION_1_8\r\n         targetCompatibility JavaVersion.VERSION_1_8\r\n"
                 }
             ],
             "date": 1644235570633,
