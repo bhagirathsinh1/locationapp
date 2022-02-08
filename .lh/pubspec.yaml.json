@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1644235268117,
@@ -12,6 +12,30 @@
                 {
                     "date": 1644299929292,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n   # Use with the CupertinoIcons class for iOS style icons.\r\n   bottom_bar: ^1.2.4\r\n   google_maps_flutter: ^2.0.11\r\n   cupertino_icons: ^1.0.2\r\n-\r\n+  page_transition: \"^2.0.5\"\r\n dev_dependencies:\r\n   flutter_test:\r\n     sdk: flutter\r\n \r\n"
+                },
+                {
+                    "date": 1644314065157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,10 +64,10 @@\n   uses-material-design: true\r\n \r\n   # To add assets to your application, add an assets section, like this:\r\n   # assets:\r\n-  #   - images/a_dot_burr.jpeg\r\n-  #   - images/a_dot_ham.jpeg\r\n+    - assets/images/burger.png\r\n+    - assets/images/office.jpg\r\n \r\n   # An image asset can refer to one or more resolution-specific \"variants\", see\r\n   # https://flutter.dev/assets-and-images/#resolution-aware.\r\n \r\n"
+                },
+                {
+                    "date": 1644314577016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,9 @@\n   # the material Icons class.\r\n   uses-material-design: true\r\n \r\n   # To add assets to your application, add an assets section, like this:\r\n-  # assets:\r\n+  assets:\r\n     - assets/images/burger.png\r\n     - assets/images/office.jpg\r\n \r\n   # An image asset can refer to one or more resolution-specific \"variants\", see\r\n"
+                },
+                {
+                    "date": 1644314811688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,13 +61,14 @@\n   # The following line ensures that the Material Icons font is\r\n   # included with your application, so that you can use the icons in\r\n   # the material Icons class.\r\n   uses-material-design: true\r\n-\r\n+world_image.jpg\r\n   # To add assets to your application, add an assets section, like this:\r\n   assets:\r\n     - assets/images/burger.png\r\n     - assets/images/office.jpg\r\n+    - assets/images/world_image.jpg\r\n \r\n   # An image asset can refer to one or more resolution-specific \"variants\", see\r\n   # https://flutter.dev/assets-and-images/#resolution-aware.\r\n \r\n"
+                },
+                {
+                    "date": 1644314865388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,9 +61,8 @@\n   # The following line ensures that the Material Icons font is\r\n   # included with your application, so that you can use the icons in\r\n   # the material Icons class.\r\n   uses-material-design: true\r\n-world_image.jpg\r\n   # To add assets to your application, add an assets section, like this:\r\n   assets:\r\n     - assets/images/burger.png\r\n     - assets/images/office.jpg\r\n"
+                },
+                {
+                    "date": 1644316727936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,12 +62,14 @@\n   # included with your application, so that you can use the icons in\r\n   # the material Icons class.\r\n   uses-material-design: true\r\n   # To add assets to your application, add an assets section, like this:\r\n+  worldimage2\r\n   assets:\r\n     - assets/images/burger.png\r\n     - assets/images/office.jpg\r\n     - assets/images/world_image.jpg\r\n+    - assets/images/worldimage2.png\r\n \r\n   # An image asset can refer to one or more resolution-specific \"variants\", see\r\n   # https://flutter.dev/assets-and-images/#resolution-aware.\r\n \r\n"
+                },
+                {
+                    "date": 1644316802197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n   # included with your application, so that you can use the icons in\r\n   # the material Icons class.\r\n   uses-material-design: true\r\n   # To add assets to your application, add an assets section, like this:\r\n-  worldimage2\r\n+  \r\n   assets:\r\n     - assets/images/burger.png\r\n     - assets/images/office.jpg\r\n     - assets/images/world_image.jpg\r\n"
                 }
             ],
             "date": 1644235268117,

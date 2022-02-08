@@ -88,13 +88,16 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20)),
-                            child: GoogleMap(
-                              zoomControlsEnabled: false,
-                              mapType: MapType.normal,
-                              initialCameraPosition: _kGooglePlex,
-                              onMapCreated: (GoogleMapController controller) {
-                                _controller.complete(controller);
-                              },
+                            child: Hero(
+                              tag: 'herotag',
+                              child: DecoratedBox(
+                                decoration: new BoxDecoration(
+                                  image: new DecorationImage(
+                                      image: new AssetImage(
+                                          'assets/images/worldimage2.png'),
+                                      fit: BoxFit.fill),
+                                ),
+                              ),
                             ),
                           ),
                         ],
@@ -116,16 +119,19 @@ class _HomePageState extends State<HomePage> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   InkWell(
-                                    onTap: () => Navigator.of(context).push(
-                                        PageTransition(
-                                            duration: Duration(seconds: 1),
-                                            type:
-                                                PageTransitionType.topToBottom,
-                                            child: GoogleMapSample())),
-                                    child: IconWidget(
-                                      boxShadow: true,
-                                      iconText: 'Car',
-                                      iconName: Icons.car_repair,
+                                    onTap: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const GoogleMapSample()),
+                                    ),
+                                    child: Hero(
+                                      tag: 'herotag2',
+                                      child: IconWidget(
+                                        boxShadow: true,
+                                        iconText: 'Car',
+                                        iconName: Icons.car_repair,
+                                      ),
                                     ),
                                   ),
                                   IconWidget(
@@ -152,6 +158,7 @@ class _HomePageState extends State<HomePage> {
                           topRight: const Radius.circular(20.0),
                         ),
                         color: Colors.white,
+                        // ignore: prefer_const_literals_to_create_immutables
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey,
