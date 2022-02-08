@@ -3,11 +3,59 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 12,
             "patches": [
                 {
                     "date": 1644235412059,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1644297993505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n   Widget build(BuildContext context) {\n     return SafeArea(\n       child: Scaffold(\n         appBar: AppBar(\n+          automaticallyImplyLeading: false,\n           backgroundColor: Colors.white,\n           title: Row(\n             mainAxisAlignment: MainAxisAlignment.spaceBetween,\n             children: [\n"
+                },
+                {
+                    "date": 1644300169013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n import 'package:flutter/material.dart';\n import 'package:google_maps_flutter/google_maps_flutter.dart';\n import 'package:locationapp/screens/google_map.dart';\n import 'package:locationapp/widget/icons.dart';\n+import 'package:page_transition/page_transition.dart';\n \n class HomePage extends StatefulWidget {\n   const HomePage({Key? key}) : super(key: key);\n \n@@ -115,11 +116,12 @@\n                                     MainAxisAlignment.spaceEvenly,\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n-                                        new MaterialPageRoute(\n-                                            builder: (BuildContext context) =>\n-                                                new GoogleMapSample())),\n+                                        PageTransition(\n+                                            type:\n+                                                PageTransitionType.topToBottom,\n+                                            child: GoogleMapSample())),\n                                     child: IconWidget(\n                                       boxShadow: true,\n                                       iconText: 'Car',\n                                       iconName: Icons.car_repair,\n"
+                },
+                {
+                    "date": 1644300196175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,10 +117,10 @@\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n-                                            type:\n-                                                PageTransitionType.topToBottom,\n+                                            type: PageTransitionType\n+                                                .bottomToTopJoined,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n                                       boxShadow: true,\n                                       iconText: 'Car',\n"
+                },
+                {
+                    "date": 1644300219192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,10 +117,10 @@\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n-                                            type: PageTransitionType\n-                                                .bottomToTopJoined,\n+                                            type:\n+                                                PageTransitionType.bottomToTop,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n                                       boxShadow: true,\n                                       iconText: 'Car',\n"
+                },
+                {
+                    "date": 1644300306954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,10 +117,9 @@\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n-                                            type:\n-                                                PageTransitionType.bottomToTop,\n+                                            type: PageTransitionType.fade,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n                                       boxShadow: true,\n                                       iconText: 'Car',\n"
+                },
+                {
+                    "date": 1644300339643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,9 +117,10 @@\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n-                                            type: PageTransitionType.fade,\n+                                            type:\n+                                                PageTransitionType.rightToLeft,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n                                       boxShadow: true,\n                                       iconText: 'Car',\n"
+                },
+                {
+                    "date": 1644300701085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,8 +117,10 @@\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n+                                            duration:\n+                                                Duration(milliseconds: 300),\n                                             type:\n                                                 PageTransitionType.rightToLeft,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n"
+                },
+                {
+                    "date": 1644300720098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,10 +117,9 @@\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n-                                            duration:\n-                                                Duration(milliseconds: 300),\n+                                            duration: Duration(seconds: 1),\n                                             type:\n                                                 PageTransitionType.rightToLeft,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n"
+                },
+                {
+                    "date": 1644300781255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -119,9 +119,9 @@\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n                                             duration: Duration(seconds: 1),\n                                             type:\n-                                                PageTransitionType.rightToLeft,\n+                                                PageTransitionType.topToBottom,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n                                       boxShadow: true,\n                                       iconText: 'Car',\n"
+                },
+                {
+                    "date": 1644300802709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,9 +117,9 @@\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n-                                            duration: Duration(seconds: 1),\n+                                            duration: Duration(seconds: 0.5),\n                                             type:\n                                                 PageTransitionType.topToBottom,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n"
+                },
+                {
+                    "date": 1644300841041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,9 +117,10 @@\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n-                                            duration: Duration(seconds: 0.5),\n+                                            duration:\n+                                                Duration(milliseconds: 500),\n                                             type:\n                                                 PageTransitionType.topToBottom,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n"
+                },
+                {
+                    "date": 1644300863237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,10 +117,9 @@\n                                 children: [\n                                   InkWell(\n                                     onTap: () => Navigator.of(context).push(\n                                         PageTransition(\n-                                            duration:\n-                                                Duration(milliseconds: 500),\n+                                            duration: Duration(seconds: 1),\n                                             type:\n                                                 PageTransitionType.topToBottom,\n                                             child: GoogleMapSample())),\n                                     child: IconWidget(\n"
                 }
             ],
             "date": 1644235412059,

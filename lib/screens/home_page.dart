@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:locationapp/screens/google_map.dart';
 import 'package:locationapp/widget/icons.dart';
+import 'package:page_transition/page_transition.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -35,6 +36,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,9 +117,11 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   InkWell(
                                     onTap: () => Navigator.of(context).push(
-                                        new MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                                new GoogleMapSample())),
+                                        PageTransition(
+                                            duration: Duration(seconds: 1),
+                                            type:
+                                                PageTransitionType.topToBottom,
+                                            child: GoogleMapSample())),
                                     child: IconWidget(
                                       boxShadow: true,
                                       iconText: 'Car',
