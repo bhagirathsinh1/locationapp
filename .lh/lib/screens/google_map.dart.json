@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1644235426313,
@@ -16,6 +16,22 @@
                 {
                     "date": 1644297926408,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n                 left: 10,\r\n                 child: IconButton(\r\n                   icon: Icon(\r\n                     Icons.arrow_back,\r\n-                    color: Colors.red,\r\n+                    color: Colors.white,\r\n                     size: 30,\r\n                   ),\r\n                   onPressed: () {\r\n                     Navigator.push(\r\n"
+                },
+                {
+                    "date": 1644300944864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n           child: Stack(\r\n             children: [\r\n               GoogleMap(\r\n                 zoomControlsEnabled: false,\r\n-                mapType: MapType.hybrid,\r\n+                mapType: MapType.normal,\r\n                 initialCameraPosition: _kGooglePlex,\r\n                 onMapCreated: (GoogleMapController controller) {\r\n                   _controller.complete(controller);\r\n                 },\r\n"
+                },
+                {
+                    "date": 1644301001368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n           child: Stack(\r\n             children: [\r\n               GoogleMap(\r\n                 zoomControlsEnabled: false,\r\n-                mapType: MapType.normal,\r\n+                mapType: MapType.terrain,\r\n                 initialCameraPosition: _kGooglePlex,\r\n                 onMapCreated: (GoogleMapController controller) {\r\n                   _controller.complete(controller);\r\n                 },\r\n"
+                },
+                {
+                    "date": 1644301018537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n           child: Stack(\r\n             children: [\r\n               GoogleMap(\r\n                 zoomControlsEnabled: false,\r\n-                mapType: MapType.terrain,\r\n+                mapType: MapType.satellite,\r\n                 initialCameraPosition: _kGooglePlex,\r\n                 onMapCreated: (GoogleMapController controller) {\r\n                   _controller.complete(controller);\r\n                 },\r\n"
+                },
+                {
+                    "date": 1644301041922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n           child: Stack(\r\n             children: [\r\n               GoogleMap(\r\n                 zoomControlsEnabled: false,\r\n-                mapType: MapType.satellite,\r\n+                mapType: MapType.normal,\r\n                 initialCameraPosition: _kGooglePlex,\r\n                 onMapCreated: (GoogleMapController controller) {\r\n                   _controller.complete(controller);\r\n                 },\r\n"
                 }
             ],
             "date": 1644235426313,

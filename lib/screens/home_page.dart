@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(20)),
                             child: GoogleMap(
                               zoomControlsEnabled: false,
-                              mapType: MapType.hybrid,
+                              mapType: MapType.normal,
                               initialCameraPosition: _kGooglePlex,
                               onMapCreated: (GoogleMapController controller) {
                                 _controller.complete(controller);

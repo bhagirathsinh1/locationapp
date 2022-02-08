@@ -36,7 +36,7 @@ class GoogleMapSampleState extends State<GoogleMapSample> {
             children: [
               GoogleMap(
                 zoomControlsEnabled: false,
-                mapType: MapType.hybrid,
+                mapType: MapType.normal,
                 initialCameraPosition: _kGooglePlex,
                 onMapCreated: (GoogleMapController controller) {
                   _controller.complete(controller);
