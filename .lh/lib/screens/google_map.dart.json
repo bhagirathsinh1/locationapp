@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 76,
+            "activePatchIndex": 77,
             "patches": [
                 {
                     "date": 1644235426313,
@@ -312,6 +312,10 @@
                 {
                     "date": 1644412236481,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -134,9 +134,9 @@\n                       height: 10,\r\n                     ),\r\n                     SlideTransition(\r\n                       position: Tween<Offset>(\r\n-                        begin: Offset(-1, 0),\r\n+                        begin: Offset(-2, 0),\r\n                         end: Offset.zero,\r\n                       ).animate(animationController),\r\n                       child: FadeTransition(\r\n                         opacity: animationController,\r\n"
+                },
+                {
+                    "date": 1644412889712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -162,9 +162,9 @@\n                 bottom: 180,\r\n                 right: 5,\r\n                 child: SlideTransition(\r\n                   position: Tween<Offset>(\r\n-                    begin: Offset(-1, 0),\r\n+                    begin: Offset(2, 0),\r\n                     end: Offset.zero,\r\n                   ).animate(animationController),\r\n                   child: FadeTransition(\r\n                     opacity: animationController,\r\n"
                 }
             ],
             "date": 1644235426313,

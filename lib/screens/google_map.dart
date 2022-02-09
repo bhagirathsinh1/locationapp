@@ -163,7 +163,7 @@ class GoogleMapSampleState extends State<GoogleMapSample>
                 right: 5,
                 child: SlideTransition(
                   position: Tween<Offset>(
-                    begin: Offset(-1, 0),
+                    begin: Offset(2, 0),
                     end: Offset.zero,
                   ).animate(animationController),
                   child: FadeTransition(
