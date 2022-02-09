@@ -1,0 +1,22 @@
+{
+    "sourceFile": "lib/widget/icons.dart",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1644317786872,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1644317888900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,15 +38,12 @@\n         padding: const EdgeInsets.all(8.0),\r\n         child: Column(\r\n           mainAxisAlignment: MainAxisAlignment.center,\r\n           children: [\r\n-            Hero(\r\n-              tag: 'herotag2',\r\n-              child: Icon(\r\n-                iconName,\r\n-                size: 40,\r\n-                color: Colors.blue,\r\n-              ),\r\n+            Icon(\r\n+              iconName,\r\n+              size: 40,\r\n+              color: Colors.blue,\r\n             ),\r\n             SizedBox(height: 10),\r\n             Text(\r\n               iconText,\r\n"
+                }
+            ],
+            "date": 1644317786872,
+            "name": "Commit-0",
+            "content": "// ignore_for_file: prefer_const_constructors\r\n\r\nimport 'package:flutter/material.dart';\r\n\r\nclass IconWidget extends StatelessWidget {\r\n  IconWidget(\r\n      {Key? key,\r\n      required this.iconText,\r\n      required this.iconName,\r\n      required this.boxShadow})\r\n      : super(key: key);\r\n  final String iconText;\r\n  final IconData? iconName;\r\n  final bool boxShadow;\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return Container(\r\n      width: 80,\r\n      decoration: BoxDecoration(\r\n          color: Colors.white,\r\n          borderRadius: BorderRadius.circular(10.0),\r\n          boxShadow: boxShadow\r\n              ? [\r\n                  BoxShadow(\r\n                    color: Colors.grey,\r\n                    blurRadius: 20,\r\n                    offset: Offset(0, 0),\r\n                  ),\r\n                ]\r\n              : [\r\n                  BoxShadow(\r\n                    color: Colors.grey,\r\n                    blurRadius: 0.5,\r\n                    offset: Offset(0, 0),\r\n                  ),\r\n                ]),\r\n      child: Padding(\r\n        padding: const EdgeInsets.all(8.0),\r\n        child: Column(\r\n          mainAxisAlignment: MainAxisAlignment.center,\r\n          children: [\r\n            Hero(\r\n              tag: 'herotag2',\r\n              child: Icon(\r\n                iconName,\r\n                size: 40,\r\n                color: Colors.blue,\r\n              ),\r\n            ),\r\n            SizedBox(height: 10),\r\n            Text(\r\n              iconText,\r\n              style: TextStyle(color: Colors.blue),\r\n            )\r\n          ],\r\n        ),\r\n      ),\r\n    );\r\n  }\r\n}\r\n"
+        }
+    ]
+}

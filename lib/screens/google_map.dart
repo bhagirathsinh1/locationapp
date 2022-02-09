@@ -13,7 +13,10 @@ class GoogleMapSample extends StatefulWidget {
   State<GoogleMapSample> createState() => GoogleMapSampleState();
 }
 
-class GoogleMapSampleState extends State<GoogleMapSample> {
+class GoogleMapSampleState extends State<GoogleMapSample>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  // late AnimationController locationButtonAnimationController;
   Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -26,9 +29,20 @@ class GoogleMapSampleState extends State<GoogleMapSample> {
       target: LatLng(22.437935, 70.601010),
       tilt: 90,
       zoom: 19.151926040649414);
+  @override
+  void initState() {
+    animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    Timer(Duration(milliseconds: 300), () => animationController.forward());
+    // locationButtonAnimationController =
+    //     AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    // Timer(Duration(milliseconds: 300), () => animationController.forward());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: new Scaffold(
         body: Center(
@@ -36,7 +50,7 @@ class GoogleMapSampleState extends State<GoogleMapSample> {
             fit: StackFit.expand,
             children: [
               // Hero(
-              //   tag: 'herotag',
+              //   tag: 'myhero',
               //   child: GoogleMap(
               //     zoomControlsEnabled: false,
               //     mapType: MapType.normal,
@@ -119,17 +133,27 @@ class GoogleMapSampleState extends State<GoogleMapSample> {
                     SizedBox(
                       height: 10,
                     ),
-                    Container(
-                      height: 60,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Center(
-                          child: Text(
-                        'Confirm Pick up',
-                        style: TextStyle(color: Colors.white),
-                      )),
+                    SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset(-2, 0),
+                        end: Offset.zero,
+                      ).animate(animationController),
+                      child: FadeTransition(
+                        opacity: animationController,
+                        child: Container(
+                          alignment: Alignment.centerLeft,
+                          height: 60,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Center(
+                              child: Text(
+                            'Confirm Pick up',
+                            style: TextStyle(color: Colors.white),
+                          )),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -137,17 +161,26 @@ class GoogleMapSampleState extends State<GoogleMapSample> {
               Positioned(
                 bottom: 180,
                 right: 5,
-                child: Container(
-                  height: 60,
-                  width: 60,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: IconButton(
-                    color: Colors.white,
-                    onPressed: _goToTheLake,
-                    // editingController.clear,
-                    icon: Icon(Icons.my_location),
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: Offset(-1, 0),
+                    end: Offset.zero,
+                  ).animate(animationController),
+                  child: FadeTransition(
+                    opacity: animationController,
+                    child: Container(
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: IconButton(
+                        color: Colors.white,
+                        onPressed: _goToTheLake,
+                        // editingController.clear,
+                        icon: Icon(Icons.my_location),
+                      ),
+                    ),
                   ),
                 ),
               ),

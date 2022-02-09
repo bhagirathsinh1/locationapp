@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1644235462968,
@@ -12,6 +12,14 @@
                 {
                     "date": 1644239668155,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     return LayoutBuilder(\n       builder: (context, constraints) {\n         return MaterialApp(\n           debugShowCheckedModeBanner: false,\n-          title: 'BottomBarPage',\n+          title: 'Location App',\n           home: BottomBarPage(),\n         );\n       },\n     );\n"
+                },
+                {
+                    "date": 1644324880202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n // ignore_for_file: prefer_const_constructors\n \n import 'package:flutter/material.dart';\n import 'package:locationapp/screens/bottombar_page.dart';\n+import 'package:locationapp/screens/samplemapscreen.dart';\n \n void main() {\n   runApp(MyApp());\n }\n@@ -16,9 +17,9 @@\n       builder: (context, constraints) {\n         return MaterialApp(\n           debugShowCheckedModeBanner: false,\n           title: 'Location App',\n-          home: BottomBarPage(),\n+          home: SampleMapScreen(),\n         );\n       },\n     );\n   }\n"
+                },
+                {
+                    "date": 1644325039247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n // ignore_for_file: prefer_const_constructors\n \n import 'package:flutter/material.dart';\n import 'package:locationapp/screens/bottombar_page.dart';\n-import 'package:locationapp/screens/samplemapscreen.dart';\n \n void main() {\n   runApp(MyApp());\n }\n@@ -17,9 +16,9 @@\n       builder: (context, constraints) {\n         return MaterialApp(\n           debugShowCheckedModeBanner: false,\n           title: 'Location App',\n-          home: SampleMapScreen(),\n+          home: BottomBarPage(),\n         );\n       },\n     );\n   }\n"
                 }
             ],
             "date": 1644235462968,

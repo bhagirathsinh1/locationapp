@@ -85,18 +85,22 @@ class _HomePageState extends State<HomePage> {
                       child: Stack(
                         fit: StackFit.expand,
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Hero(
-                              tag: 'herotag',
-                              child: DecoratedBox(
-                                decoration: new BoxDecoration(
-                                  image: new DecorationImage(
-                                      image: new AssetImage(
-                                          'assets/images/worldimage2.png'),
-                                      fit: BoxFit.fill),
-                                ),
+                          // GoogleMap(
+                          //   zoomControlsEnabled: false,
+                          //   mapType: MapType.normal,
+                          //   initialCameraPosition: _kGooglePlex,
+                          //   onMapCreated: (GoogleMapController controller) {
+                          //     _controller.complete(controller);
+                          //   },
+                          // ),
+                          Hero(
+                            tag: 'herotag',
+                            child: DecoratedBox(
+                              decoration: new BoxDecoration(
+                                image: new DecorationImage(
+                                    image: new AssetImage(
+                                        'assets/images/worldimage2.png'),
+                                    fit: BoxFit.fill),
                               ),
                             ),
                           ),
@@ -119,19 +123,18 @@ class _HomePageState extends State<HomePage> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   InkWell(
-                                    onTap: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const GoogleMapSample()),
-                                    ),
-                                    child: Hero(
-                                      tag: 'herotag2',
-                                      child: IconWidget(
-                                        boxShadow: true,
-                                        iconText: 'Car',
-                                        iconName: Icons.car_repair,
-                                      ),
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                GoogleMapSample()),
+                                      );
+                                    },
+                                    child: IconWidget(
+                                      boxShadow: true,
+                                      iconText: 'Car',
+                                      iconName: Icons.car_repair,
                                     ),
                                   ),
                                   IconWidget(
