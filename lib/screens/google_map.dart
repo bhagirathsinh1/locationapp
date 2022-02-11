@@ -31,6 +31,8 @@ class GoogleMapSampleState extends State<GoogleMapSample>
       zoom: 19.151926040649414);
   @override
   void initState() {
+    _opacity = 1;
+
     animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     Timer(Duration(milliseconds: 300), () => animationController.forward());
@@ -40,152 +42,156 @@ class GoogleMapSampleState extends State<GoogleMapSample>
     super.initState();
   }
 
+  double _opacity = 0;
+
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: new Scaffold(
-        body: Center(
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              // Hero(
-              //   tag: 'myhero',
-              //   child: GoogleMap(
-              //     zoomControlsEnabled: false,
-              //     mapType: MapType.normal,
-              //     initialCameraPosition: _kGooglePlex,
-              //     onMapCreated: (GoogleMapController controller) {
-              //       _controller.complete(controller);
-              //     },
-              //   ),
-              // ),
-              Hero(
-                tag: 'herotag',
-                child: DecoratedBox(
-                  decoration: new BoxDecoration(
-                    image: new DecorationImage(
-                        image: new AssetImage('assets/images/worldimage2.png'),
-                        fit: BoxFit.fill),
-                  ),
+    return Scaffold(
+      body: AnimatedContainer(
+        duration: Duration(seconds: 4),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            // Hero(
+            //   tag: 'myhero',
+            //   child: GoogleMap(
+            //     zoomControlsEnabled: false,
+            //     mapType: MapType.normal,
+            //     initialCameraPosition: _kGooglePlex,
+            //     onMapCreated: (GoogleMapController controller) {
+            //       _controller.complete(controller);
+            //     },
+            //   ),
+            // ),
+            Hero(
+              tag: 'herotag',
+              child: DecoratedBox(
+                decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                      image: new AssetImage('assets/images/worldimage2.png'),
+                      fit: BoxFit.fill),
                 ),
               ),
-              Positioned(
-                top: 10,
-                left: 10,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                    size: 30,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => BottomBarPage()),
-                    );
-                  },
+            ),
+            Positioned(
+              top: 10,
+              left: 10,
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 30,
                 ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BottomBarPage()),
+                  );
+                },
               ),
-              Positioned(
-                bottom: 40,
-                left: 5,
-                right: 5,
-                child: Column(
-                  children: [
-                    Container(
-                      height: 60,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: TextField(
-                          onChanged: (value) {
-                            // filterSearchResults(
-                            //   value.toLowerCase(),
-                            // );
-                          },
-                          // controller: editingController,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                            hintText: "Current Loaction",
-                            prefixIcon: IconButton(
-                              color: Colors.blue,
-                              onPressed: null,
-                              // editingController.clear,
-                              icon: Icon(Icons.car_repair),
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: null,
-                              // editingController.clear,
-                              icon: Icon(Icons.search),
-                            ),
+            ),
+            Positioned(
+              bottom: MediaQuery.of(context).size.width / 4,
+              right: 5,
+              left: 5,
+              child: Hero(
+                tag: 'icontag',
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: DecoratedBox(
+                    // height: 60,
+                    // alignment: Alignment.center,
+                    // width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Material(
+                      child: TextField(
+                        onChanged: (value) {
+                          // filterSearchResults(
+                          //   value.toLowerCase(),
+                          // );
+                        },
+                        // controller: editingController,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          errorBorder: InputBorder.none,
+                          disabledBorder: InputBorder.none,
+                          hintText: "Current Loaction",
+                          prefixIcon: IconButton(
+                            color: Colors.blue,
+                            onPressed: null,
+                            // editingController.clear,
+                            icon: Icon(Icons.car_repair),
+                          ),
+                          suffixIcon: IconButton(
+                            onPressed: null,
+                            // editingController.clear,
+                            icon: Icon(Icons.search),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    SlideTransition(
-                      position: Tween<Offset>(
-                        begin: Offset(-2, 0),
-                        end: Offset.zero,
-                      ).animate(animationController),
-                      child: FadeTransition(
-                        opacity: animationController,
-                        child: Container(
-                          alignment: Alignment.centerLeft,
-                          height: 60,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Center(
-                              child: Text(
-                            'Confirm Pick up',
-                            style: TextStyle(color: Colors.white),
-                          )),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Positioned(
-                bottom: 180,
-                right: 5,
-                child: SlideTransition(
-                  position: Tween<Offset>(
-                    begin: Offset(2, 0),
-                    end: Offset.zero,
-                  ).animate(animationController),
-                  child: FadeTransition(
-                    opacity: animationController,
-                    child: Container(
-                      height: 60,
-                      width: 60,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: IconButton(
-                        color: Colors.white,
-                        onPressed: _goToTheLake,
-                        // editingController.clear,
-                        icon: Icon(Icons.my_location),
-                      ),
-                    ),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+
+            Positioned(
+              bottom: MediaQuery.of(context).size.height / 35,
+              right: 5,
+              left: 5,
+              child: SlideTransition(
+                position: Tween<Offset>(
+                  begin: Offset(-2, 0),
+                  end: Offset.zero,
+                ).animate(animationController),
+                child: FadeTransition(
+                  opacity: animationController,
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Center(
+                        child: Text(
+                      'Confirm Pick up',
+                      style: TextStyle(color: Colors.white),
+                    )),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: MediaQuery.of(context).size.width / 2.3,
+              right: 5,
+              child: AnimatedOpacity(
+                opacity: _opacity,
+                duration: Duration(seconds: 4),
+                child: Container(
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: IconButton(
+                    color: Colors.white,
+                    onPressed: () {
+                      setState(() {});
+                      _goToTheLake;
+                    },
+                    // editingController.clear,
+                    icon: Icon(Icons.my_location),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

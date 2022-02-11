@@ -95,12 +95,16 @@ class _HomePageState extends State<HomePage> {
                           // ),
                           Hero(
                             tag: 'herotag',
-                            child: DecoratedBox(
-                              decoration: new BoxDecoration(
-                                image: new DecorationImage(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: DecoratedBox(
+                                decoration: new BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: new DecorationImage(
                                     image: new AssetImage(
                                         'assets/images/worldimage2.png'),
-                                    fit: BoxFit.fill),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -122,15 +126,8 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                GoogleMapSample()),
-                                      );
-                                    },
+                                  Hero(
+                                    tag: 'icontag',
                                     child: IconWidget(
                                       boxShadow: true,
                                       iconText: 'Car',
