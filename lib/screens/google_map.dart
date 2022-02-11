@@ -53,27 +53,27 @@ class GoogleMapSampleState extends State<GoogleMapSample>
         child: Stack(
           fit: StackFit.expand,
           children: [
-            // Hero(
-            //   tag: 'myhero',
-            //   child: GoogleMap(
-            //     zoomControlsEnabled: false,
-            //     mapType: MapType.normal,
-            //     initialCameraPosition: _kGooglePlex,
-            //     onMapCreated: (GoogleMapController controller) {
-            //       _controller.complete(controller);
-            //     },
-            //   ),
-            // ),
             Hero(
               tag: 'herotag',
-              child: DecoratedBox(
-                decoration: new BoxDecoration(
-                  image: new DecorationImage(
-                      image: new AssetImage('assets/images/worldimage2.png'),
-                      fit: BoxFit.fill),
-                ),
+              child: GoogleMap(
+                zoomControlsEnabled: false,
+                mapType: MapType.normal,
+                initialCameraPosition: _kGooglePlex,
+                onMapCreated: (GoogleMapController controller) {
+                  // _controller.complete(controller);
+                },
               ),
             ),
+            // Hero(
+            //   tag: 'herotag',
+            //   child: DecoratedBox(
+            //     decoration: new BoxDecoration(
+            //       image: new DecorationImage(
+            //           image: new AssetImage('assets/images/worldimage2.png'),
+            //           fit: BoxFit.fill),
+            //     ),
+            //   ),
+            // ),
             Positioned(
               top: 10,
               left: 10,
