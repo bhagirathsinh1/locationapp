@@ -2,12 +2,10 @@
 
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:locationapp/screens/google_map.dart';
 import 'package:locationapp/widget/icons.dart';
-import 'package:page_transition/page_transition.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -86,13 +84,14 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Hero(
                         tag: 'herotag',
-                        child: GoogleMap(
-                          zoomControlsEnabled: false,
-                          mapType: MapType.normal,
-                          initialCameraPosition: _kGooglePlex,
-                          onMapCreated: (GoogleMapController controller) {
-                            // _controller.complete(controller);
-                          },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ClipRRect(
+                            borderRadius:
+                                BorderRadius.circular(10.0), //add border radius
+
+                            child: googleMapMethod(),
+                          ),
                         ),
                       ),
                       // Hero(
@@ -124,8 +123,13 @@ class _HomePageState extends State<HomePage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            GoogleMapSample()),
+                                      builder: (context) => GoogleMapSample(
+                                          googleMapPassed: GoogleMap(
+                                        zoomControlsEnabled: false,
+                                        mapType: MapType.normal,
+                                        initialCameraPosition: _kGooglePlex,
+                                      )),
+                                    ),
                                   );
                                 },
                                 child: Hero(
@@ -232,6 +236,14 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ),
+    );
+  }
+
+  Widget googleMapMethod() {
+    return GoogleMap(
+      zoomControlsEnabled: false,
+      mapType: MapType.normal,
+      initialCameraPosition: _kGooglePlex,
     );
   }
 }

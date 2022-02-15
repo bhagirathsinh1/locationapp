@@ -2,13 +2,14 @@
 
 import 'dart:async';
 
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:locationapp/screens/bottombar_page.dart';
 
 class GoogleMapSample extends StatefulWidget {
-  const GoogleMapSample({Key? key}) : super(key: key);
-
+  GoogleMapSample({Key? key, required this.googleMapPassed}) : super(key: key);
+  final Widget googleMapPassed;
   @override
   State<GoogleMapSample> createState() => GoogleMapSampleState();
 }
@@ -16,7 +17,10 @@ class GoogleMapSample extends StatefulWidget {
 class GoogleMapSampleState extends State<GoogleMapSample>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
-  // late AnimationController locationButtonAnimationController;
+  bool get isForwardAnimation =>
+      animationController.status == AnimationStatus.forward ||
+      animationController.status == AnimationStatus.completed;
+  // late AnimationController targetButtonAnimationController;
   Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -31,18 +35,18 @@ class GoogleMapSampleState extends State<GoogleMapSample>
       zoom: 19.151926040649414);
   @override
   void initState() {
-    _opacity = 1;
-
     animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    Timer(Duration(milliseconds: 300), () => animationController.forward());
-    // locationButtonAnimationController =
-    //     AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    // Timer(Duration(milliseconds: 300), () => animationController.forward());
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    Timer(Duration(milliseconds: 500), () => animationController.forward());
+
     super.initState();
   }
 
-  double _opacity = 0;
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +59,7 @@ class GoogleMapSampleState extends State<GoogleMapSample>
           children: [
             Hero(
               tag: 'herotag',
-              child: GoogleMap(
-                zoomControlsEnabled: false,
-                mapType: MapType.normal,
-                initialCameraPosition: _kGooglePlex,
-                onMapCreated: (GoogleMapController controller) {
-                  // _controller.complete(controller);
-                },
-              ),
+              child: widget.googleMapPassed,
             ),
             // Hero(
             //   tag: 'herotag',
@@ -75,8 +72,8 @@ class GoogleMapSampleState extends State<GoogleMapSample>
             //   ),
             // ),
             Positioned(
-              top: 10,
-              left: 10,
+              top: 30,
+              left: 20,
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back,
@@ -99,14 +96,15 @@ class GoogleMapSampleState extends State<GoogleMapSample>
                 tag: 'icontag',
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
-                  child: DecoratedBox(
-                    // height: 60,
-                    // alignment: Alignment.center,
-                    // width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Material(
+                  child: Material(
+                    color: Colors.transparent,
+                    child: Container(
+                      alignment: Alignment.centerLeft,
+                      height: 60,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
                       child: TextField(
                         onChanged: (value) {
                           // filterSearchResults(
@@ -115,7 +113,9 @@ class GoogleMapSampleState extends State<GoogleMapSample>
                         },
                         // controller: editingController,
                         decoration: InputDecoration(
-                          border: InputBorder.none,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                           focusedBorder: InputBorder.none,
                           enabledBorder: InputBorder.none,
                           errorBorder: InputBorder.none,
@@ -146,7 +146,7 @@ class GoogleMapSampleState extends State<GoogleMapSample>
               left: 5,
               child: SlideTransition(
                 position: Tween<Offset>(
-                  begin: Offset(-2, 0),
+                  begin: Offset(-0.5, 0),
                   end: Offset.zero,
                 ).animate(animationController),
                 child: FadeTransition(
@@ -170,30 +170,41 @@ class GoogleMapSampleState extends State<GoogleMapSample>
             Positioned(
               bottom: MediaQuery.of(context).size.width / 2.3,
               right: 5,
-              child: AnimatedOpacity(
-                opacity: _opacity,
-                duration: Duration(seconds: 4),
-                child: Container(
-                  height: 60,
-                  width: 60,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: IconButton(
-                    color: Colors.white,
-                    onPressed: () {
-                      setState(() {});
-                      _goToTheLake;
-                    },
-                    // editingController.clear,
-                    icon: Icon(Icons.my_location),
+              child: AnimatedBuilder(
+                animation: animationController,
+                builder: (context, child) => FadeScaleTransition(
+                  animation: animationController,
+                  child: Visibility(
+                    visible:
+                        animationController.status != AnimationStatus.dismissed,
+                    child: Container(
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: IconButton(
+                        color: Colors.white,
+                        onPressed: () {},
+                        // editingController.clear,
+                        icon: Icon(Icons.my_location),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
+    );
+  }
+
+  GoogleMap gmapMethod() {
+    return GoogleMap(
+      zoomControlsEnabled: false,
+      mapType: MapType.normal,
+      initialCameraPosition: _kGooglePlex,
     );
   }
 
